@@ -1,0 +1,33 @@
+name: artifacts-check
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  validate-artifacts:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out the submitted commit
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Record environment
+        run: python artifacts/tools/environment_check.py
+
+      - name: Validate required artifacts
+        run: python artifacts/tools/validate_artifacts.py | tee validation_result.txt
+
+      - name: Upload evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: quality-gate-evidence
+          path: |
+            environment_evidence.json
+            validation_result.txt
