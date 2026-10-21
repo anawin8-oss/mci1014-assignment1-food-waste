@@ -1,6 +1,6 @@
 # MCI1014 Assignment 1 – Use-First Food Assistant
 
-**Course:** MCI1014 Artificial Intelligence in Software Engineering (Session 2025/2026 II)  
+**Course:** MCI1014 Artificial Intelligence in Software Engineering (Session 2026/2027 I)  
 **Student:** Anawin Chorungreang A/L E Phwan · **Student ID:** KCA26006 
 **Submission:** Friday 23 October 2026, 12:00 PM via KALAM
 
